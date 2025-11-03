@@ -478,3 +478,90 @@ body {
         left: 12px;
     }
 }
+
+/* --- ADD: Hacking Platform Styles --- */
+
+/* Subtitle text for the section */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-top: -1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* The grid for the two cards */
+.platform-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* The "Jaw-Dropping" Glass Card */
+.platform-card {
+    /* This creates the frosted glass effect */
+    background: rgba(30, 30, 30, 0.25); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    
+    /* This creates the 3D hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden; /* Important for the iframe */
+}
+
+/* The glowing hover effect */
+.platform-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 16px 40px 0 var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Specific Card Styles --- */
+
+/* TryHackMe Card */
+.platform-card.thm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Adds some breathing room */
+}
+
+.platform-card.thm img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* HackTheBox Card */
+.platform-card.htb a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.platform-card.htb img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* --- Make it responsive on mobile --- */
+@media(max-width: 900px) {
+    .platform-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* This gives both cards a matching height */
+    .platform-card {
+         min-height: 320px; 
+    }
+}
